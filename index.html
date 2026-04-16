@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ServiceNow Automation Portfolio | HBRose-BIDA</title>
+  <meta name="description" content="Portfolio page for the ServiceNow automation and ML incident-prioritization project by HBRose-BIDA." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-ink: #091320;
+      --bg-deep: #14273d;
+      --paper: #f7f3e8;
+      --sand: #efe3c5;
+      --sun: #f6a623;
+      --teal: #1f9d95;
+      --rose: #d95b5b;
+      --slate: #243444;
+      --card: rgba(247, 243, 232, 0.9);
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+      --radius: 18px;
+      --maxw: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--bg-ink);
+      background:
+        radial-gradient(circle at 14% 8%, rgba(246, 166, 35, 0.42), transparent 35%),
+        radial-gradient(circle at 86% 16%, rgba(31, 157, 149, 0.28), transparent 30%),
+        radial-gradient(circle at 50% 95%, rgba(217, 91, 91, 0.25), transparent 40%),
+        linear-gradient(160deg, var(--bg-deep), var(--bg-ink));
+      line-height: 1.55;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image: radial-gradient(#fff 0.4px, transparent 0.4px);
+      background-size: 4px 4px;
+      z-index: 0;
+    }
+
+    .wrap {
+      width: min(var(--maxw), calc(100% - 2rem));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      padding-bottom: 3rem;
+    }
+
+    .hero {
+      margin: 2rem 0 1.5rem;
+      padding: 2rem;
+      border-radius: 28px;
+      background: linear-gradient(130deg, rgba(247, 243, 232, 0.97), rgba(239, 227, 197, 0.88));
+      box-shadow: var(--shadow);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: rise 700ms ease forwards;
+    }
+
+    .eyebrow {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      color: var(--rose);
+      margin-bottom: 0.7rem;
+    }
+
+    h1, h2 {
+      font-family: "Fraunces", serif;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 3.6vw, 3.2rem);
+      color: var(--slate);
+      max-width: 18ch;
+    }
+
+    .lead {
+      margin: 1rem 0 1.2rem;
+      max-width: 70ch;
+      font-size: 1.05rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--paper);
+      background: var(--slate);
+      border: 2px solid transparent;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: var(--bg-deep);
+    }
+
+    .btn.alt {
+      color: var(--slate);
+      background: transparent;
+      border-color: var(--slate);
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(12, 1fr);
+      margin-top: 1.1rem;
+    }
+
+    .card {
+      grid-column: span 12;
+      background: var(--card);
+      border: 1px solid rgba(20, 39, 61, 0.1);
+      border-radius: var(--radius);
+      padding: 1.1rem;
+      box-shadow: var(--shadow);
+      transform: translateY(22px);
+      opacity: 0;
+      animation: rise 680ms ease forwards;
+    }
+
+    .card:nth-child(2) { animation-delay: 80ms; }
+    .card:nth-child(3) { animation-delay: 130ms; }
+    .card:nth-child(4) { animation-delay: 170ms; }
+    .card:nth-child(5) { animation-delay: 210ms; }
+    .card:nth-child(6) { animation-delay: 250ms; }
+
+    .card h3 {
+      margin: 0 0 0.45rem;
+      font-family: "Fraunces", serif;
+      color: var(--bg-deep);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(36, 52, 68, 0.12);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .list li + li {
+      margin-top: 0.3rem;
+    }
+
+    .links a {
+      color: var(--bg-deep);
+      font-weight: 700;
+    }
+
+    .footer {
+      margin: 1.2rem 0;
+      color: rgba(247, 243, 232, 0.95);
+      font-size: 0.93rem;
+      text-align: center;
+    }
+
+    .kpi {
+      display: inline-block;
+      margin-right: 0.75rem;
+      margin-top: 0.4rem;
+      padding: 0.24rem 0.56rem;
+      border-radius: 999px;
+      background: rgba(31, 157, 149, 0.15);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--bg-deep);
+    }
+
+    @media (min-width: 780px) {
+      .hero {
+        padding: 2.5rem;
+      }
+
+      .card.span-6 {
+        grid-column: span 6;
+      }
+
+      .card.span-4 {
+        grid-column: span 4;
+      }
+
+      .card.span-8 {
+        grid-column: span 8;
+      }
+    }
+
+    @keyframes rise {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Portfolio Project</div>
+      <h1>ServiceNow Incident Automation with ML + API Workflow</h1>
+      <p class="lead">
+        This project is a Python automation system that reads incident records from ServiceNow, processes event-driven updates,
+        predicts urgency with a machine learning model, and outputs dashboards and presentations for faster decision-making.
+      </p>
+      <span class="kpi">Python + REST APIs</span>
+      <span class="kpi">ML Inference Pipeline</span>
+      <span class="kpi">ServiceNow Integration</span>
+      <div class="actions">
+        <a class="btn" href="https://github.com/HBRose-BIDA/ServiceNow" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
+        <a class="btn alt" href="dashboard.html" target="_blank" rel="noopener noreferrer">Open Local Dashboard</a>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Project explanation sections">
+      <article class="card span-8">
+        <div class="pill">What The Code Does</div>
+        <h3>End-to-end incident intelligence pipeline</h3>
+        <p>
+          The codebase simulates and manages an IT operations flow: events enter through an inbox/queue workflow,
+          incidents are retrieved and interpreted from ServiceNow, urgency is scored via a trained model, and outputs are
+          generated as both HTML dashboards and executive-ready slides.
+        </p>
+        <ul class="list">
+          <li>Fetches incident data from ServiceNow table API endpoints.</li>
+          <li>Normalizes and routes incident events through file-based triggers.</li>
+          <li>Applies a custom urgency model for decision support.</li>
+          <li>Creates operational outputs that are useful for analysts and leadership.</li>
+        </ul>
+      </article>
+
+      <article class="card span-4 links">
+        <div class="pill">Code Links</div>
+        <h3>Key files in the repo</h3>
+        <ul class="list">
+          <li><a href="https://github.com/HBRose-BIDA/ServiceNow/blob/main/show_incidents.py" target="_blank" rel="noopener noreferrer">show_incidents.py</a> - ServiceNow incident retrieval.</li>
+          <li><a href="https://github.com/HBRose-BIDA/ServiceNow/blob/main/trigger/watcher.py" target="_blank" rel="noopener noreferrer">trigger/watcher.py</a> - event watcher pipeline.</li>
+          <li><a href="https://github.com/HBRose-BIDA/ServiceNow/blob/main/ml/train_model.py" target="_blank" rel="noopener noreferrer">ml/train_model.py</a> - model training.</li>
+          <li><a href="https://github.com/HBRose-BIDA/ServiceNow/blob/main/ml/predictor.py" target="_blank" rel="noopener noreferrer">ml/predictor.py</a> - prediction engine.</li>
+          <li><a href="https://github.com/HBRose-BIDA/ServiceNow/blob/main/dashboard.py" target="_blank" rel="noopener noreferrer">dashboard.py</a> - dashboard generation.</li>
+        </ul>
+      </article>
+
+      <article class="card span-6">
+        <div class="pill">How This Demonstrates ML</div>
+        <h3>Predictive prioritization, not just reporting</h3>
+        <p>
+          The project includes model training and inference workflows that classify likely urgency levels. This demonstrates practical ML usage:
+          converting incident attributes into predictive signals that help prioritize response before manual triage is complete.
+        </p>
+      </article>
+
+      <article class="card span-6">
+        <div class="pill">How This Demonstrates AI</div>
+        <h3>Decision support and intelligent automation</h3>
+        <p>
+          AI value appears in automated scoring and recommendation-style logic that augments analyst decision-making. Instead of manually sorting all records,
+          analysts can focus on likely high-impact incidents first, reducing cognitive load and response time.
+        </p>
+      </article>
+
+      <article class="card span-6">
+        <div class="pill">How This Demonstrates ServiceNow + API Skills</div>
+        <h3>Enterprise integration pattern</h3>
+        <p>
+          The implementation uses authenticated REST calls to ServiceNow table APIs, then structures retrieved data for processing and visualization.
+          This reflects a common enterprise pattern: external system integration, transformation, and orchestration inside a custom automation layer.
+        </p>
+      </article>
+
+      <article class="card span-6">
+        <div class="pill">How This Demonstrates Vibe Coding</div>
+        <h3>Rapid prototyping with iterative delivery</h3>
+        <p>
+          The project combines quick iteration, working scripts, and visible outputs (dashboard + slide deck) to show a modern build style:
+          move from idea to demo quickly, validate with real workflows, then refine architecture over time. This is exactly the kind of
+          practical "vibe coding" that turns concepts into usable artifacts.
+        </p>
+      </article>
+
+      <article class="card span-12">
+        <div class="pill">Example Use Case</div>
+        <h3>What this is good for</h3>
+        <p>
+          A managed services team receives hundreds of incidents per week from multiple business units. Manual triage creates delays and inconsistent prioritization.
+          With this project, the team can automatically pull incidents from ServiceNow, score urgency, and publish a daily dashboard + briefing deck.
+          Result: faster escalation for high-risk issues, clearer operational visibility, and better leadership reporting.
+        </p>
+      </article>
+    </section>
+
+    <p class="footer">
+      Built by HBRose-BIDA • Portfolio showcase for automation, machine learning, API integration, and operational analytics.
+    </p>
+  </main>
+</body>
+</html>
