@@ -1,0 +1,34 @@
+{
+  "latest_incident": {
+    "incident_number": "INC0010013",
+    "sys_id": "eb8abd5d83d0035093575855eeaad3ca",
+    "created_at_utc": "2026-04-16T05:35:51.576858+00:00",
+    "short_description": "Critical database outage in production"
+  },
+  "incidents": [
+    {
+      "incident_number": "INC0010010",
+      "sys_id": "f302f51d8390035093575855eeaad33c",
+      "created_at_utc": "2026-04-16T04:58:44.433270+00:00",
+      "short_description": "Pilot alert from record generator"
+    },
+    {
+      "incident_number": "INC0010011",
+      "sys_id": "cc72f15d8390035093575855eeaad3f7",
+      "created_at_utc": "2026-04-16T05:00:23.486424+00:00",
+      "short_description": "Pilot alert from record generator"
+    },
+    {
+      "incident_number": "INC0010012",
+      "sys_id": "dca4f51183d0035093575855eeaad319",
+      "created_at_utc": "2026-04-16T05:09:58.640555+00:00",
+      "short_description": "System down alert"
+    },
+    {
+      "incident_number": "INC0010013",
+      "sys_id": "eb8abd5d83d0035093575855eeaad3ca",
+      "created_at_utc": "2026-04-16T05:35:51.576858+00:00",
+      "short_description": "Critical database outage in production"
+    }
+  ]
+}
